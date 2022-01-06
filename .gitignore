@@ -32,6 +32,7 @@ ENSEK Web API/ENSEK Web API/[Oo]ut/
 ENSEK Web API/ENSEK Web API/msbuild.log
 ENSEK Web API/ENSEK Web API/msbuild.err
 ENSEK Web API/ENSEK Web API/msbuild.wrn
+ENSEK Web API/ENSEK Web API/database.db
 
 # Visual Studio 2015
 .vs/
