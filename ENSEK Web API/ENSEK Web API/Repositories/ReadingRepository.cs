@@ -1,4 +1,5 @@
 ﻿using ENSEK_Web_API.Models;
+using ENSEK_Web_API.Models.Database;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 

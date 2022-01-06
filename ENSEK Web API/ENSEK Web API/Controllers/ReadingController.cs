@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using CsvHelper;
 using CsvHelper.TypeConversion;
 using ENSEK_Web_API.Models;
+using ENSEK_Web_API.Models.Database;
 using ENSEK_Web_API.Models.Response;
 using ENSEK_Web_API.Repositories;
 using ENSEK_Web_API.Utils;
@@ -43,7 +44,11 @@ namespace ENSEK_Web_API.Controllers
                 foreach(int row in failedRows)
                 {
                     uploadResponse.ErrorCount++;
-                    uploadResponse.ErrorMessages.Add("Row[" + row + "] Contains Invalid Information.");
+                    uploadResponse.ErrorMessages.Add(new MeterReadingError()
+                    {
+                        RowID = row,
+                        Message = "Row contains invalid information"
+                    });
                 }
 
                 //Attempt to add the rows that succesfully parsed to the database
@@ -60,7 +65,11 @@ namespace ENSEK_Web_API.Controllers
                     {
                         //if the insert failed lets also return the reason why
                         uploadResponse.ErrorCount++;
-                        uploadResponse.ErrorMessages.Add("Row[" + row + "] " +  message);
+                        uploadResponse.ErrorMessages.Add(new MeterReadingError()
+                        {
+                            RowID = row,
+                            Message = message
+                        });
                     }
                 }
 

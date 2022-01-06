@@ -1,6 +1,5 @@
 ﻿using CsvHelper;
-using CsvHelper.TypeConversion;
-using ENSEK_Web_API.Models;
+using ENSEK_Web_API.Models.Database;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;

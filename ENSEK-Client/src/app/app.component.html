@@ -1,0 +1,35 @@
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  <img
+    width="130"
+    alt="Angular Logo"
+    src="assets/enseklogowhite.png"
+  />
+</div>
+
+<div class="content" role="main">
+
+  <mat-form-field class="server-ip-input" appearance="fill">
+    <mat-label>Server IP Address</mat-label>
+    <input matInput placeholder="Ex. http://localhost:5001" [(ngModel)]="serverIPAddress">
+  </mat-form-field>
+
+  <mat-card>
+    <div class="upload-spinner-container" *ngIf="processingRequest">
+      <h2>Uploading File...</h2>
+      <mat-progress-bar [value]="fileUploadProgress"></mat-progress-bar>
+    </div>
+
+    <h2>Upload Customer Readings</h2>
+    <p>You can use this section to upload customer readings to the ENSEK System</p>
+
+  <button mat-raised-button color="secondary" (click)="imgFileInput.click()">Select File</button>
+  <input id="file-upload" type="file" #imgFileInput hidden accept=".csv" (change)="fileSelected($event)"/>
+  <span *ngIf="selectedFile != undefined" class="file-name">{{selectedFile.name}}</span>
+  
+  <div class="submit-button">  
+    <button mat-raised-button color="primary" [disabled]="selectedFile == undefined" (click)="uploadReadings()">Upload Readings</button>
+  </div>
+
+  </mat-card>
+</div>

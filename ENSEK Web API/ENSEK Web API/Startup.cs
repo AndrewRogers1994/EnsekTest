@@ -29,6 +29,9 @@ namespace ENSEK_Web_API
                 app.UseDeveloperExceptionPage();
             }
 
+            //Don't typically want to do this in production but should be fine for this test
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -39,6 +42,8 @@ namespace ENSEK_Web_API
             {
                 endpoints.MapControllers();
             });
+
+
         }
     }
 }

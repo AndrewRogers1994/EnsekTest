@@ -2,7 +2,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace ENSEK_Web_API.Models
+namespace ENSEK_Web_API.Models.Database
 {
     public class Reading
     {
@@ -16,6 +16,11 @@ namespace ENSEK_Web_API.Models
             Reading other = obj as Reading;
 
             return obj != null && AccountId.Equals(other.AccountId) && MeterReadingDateTime.Equals(other.MeterReadingDateTime) && MeterReadValue.Equals(other.MeterReadValue);
+        }
+
+        public override int GetHashCode()
+        {
+            return (AccountId, MeterReadingDateTime, MeterReadValue).GetHashCode();
         }
     }
 

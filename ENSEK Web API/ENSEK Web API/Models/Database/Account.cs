@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ENSEK_Web_API.Models
+namespace ENSEK_Web_API.Models.Database
 {
     public class Account
     {

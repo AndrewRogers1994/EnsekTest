@@ -1,4 +1,5 @@
-﻿using ENSEK_Web_API.Utils;
+﻿using ENSEK_Web_API.Models.Database;
+using ENSEK_Web_API.Utils;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;

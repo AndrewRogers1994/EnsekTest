@@ -1,4 +1,4 @@
-﻿using ENSEK_Web_API.Models;
+﻿using ENSEK_Web_API.Models.Database;
 using System.Threading.Tasks;
 
 namespace ENSEK_Web_API.Repositories
