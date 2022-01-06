@@ -51,10 +51,17 @@ export class AppComponent implements OnInit
   }
 
   uploadReadings()
-  {   
+  {
     //Reset any progress bar
     this.fileUploadProgress = 0;
     this.processingRequest = true;
+
+    //Traim any trailing slashes from the url
+    while(this.serverIPAddress.charAt(this.serverIPAddress.length-1) == "/")
+    {
+      console.log("trimming char");
+      this.serverIPAddress = this.serverIPAddress.slice(0,-1);
+    }
 
     //Update the serverIPAddress in local storage so it's retained on page refresh
     localStorage.setItem('serverIPAddress', this.serverIPAddress);
