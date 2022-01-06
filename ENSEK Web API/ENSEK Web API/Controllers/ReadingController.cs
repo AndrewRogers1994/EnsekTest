@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using CsvHelper;
-using CsvHelper.TypeConversion;
-using ENSEK_Web_API.Models;
+﻿using System.Threading.Tasks;
 using ENSEK_Web_API.Models.Database;
 using ENSEK_Web_API.Models.Response;
 using ENSEK_Web_API.Repositories;

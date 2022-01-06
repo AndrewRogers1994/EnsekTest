@@ -2,7 +2,6 @@ using ENSEK_Web_API.Models;
 using ENSEK_Web_API.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -16,8 +15,7 @@ namespace ENSEK_Web_API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IReadingRepository, ReadingRepository>();
-            services.AddDbContext<DatabaseContext>(o => o.UseSqlite("Data source=database.db"));
-            //services.AddDbContext<ReadingContext>(o => o.UseSqlite("Data source=database.db"));
+            services.AddDbContext<DatabaseContext>(o => o.UseSqlite("Data source=database.db"));  
             services.AddControllers();
         }
 

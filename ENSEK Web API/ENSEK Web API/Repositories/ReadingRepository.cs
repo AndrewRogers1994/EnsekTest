@@ -7,13 +7,11 @@ namespace ENSEK_Web_API.Repositories
 {
     public class ReadingRepository : IReadingRepository
     {
-        //private readonly ReadingContext _ReadingContext;
         private readonly DatabaseContext _DatabaseContext;
 
         public ReadingRepository(DatabaseContext context)
         {
             _DatabaseContext = context;
-            //_AccountContext = accountContext;
         }
 
         public async Task<(bool result, string message)> CreateReading(Reading reading)
