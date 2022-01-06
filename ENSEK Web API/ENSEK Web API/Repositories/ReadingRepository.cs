@@ -26,10 +26,10 @@ namespace ENSEK_Web_API.Repositories
                 if(linkedAccount != null)
                 {
                     //Check that the meter reading is in the correct format
-                    MatchCollection matches = Regex.Matches(reading.MeterReadValue, "\\d{5}");
+                    MatchCollection matches = Regex.Matches(reading.MeterReadValue, "^[0-9]*$");
 
                     //Check that there is exactly 1 match
-                    if(reading.MeterReadValue.Length == 5 && matches.Count == 1)
+                    if(matches.Count == 1)
                     {
                         //Check to see if there is already an entry in the database
                         Reading currentDatabaseReading = await _DatabaseContext.Readings.FindAsync(reading.AccountId);
@@ -41,7 +41,7 @@ namespace ENSEK_Web_API.Repositories
                             if(!reading.Equals(currentDatabaseReading))
                             {
                                 //Check if the submitted entry is newer than the current entry
-                                if(reading.MeterReadingDateTime >= currentDatabaseReading.MeterReadingDateTime)
+                                if(reading.MeterReadingDateTime > currentDatabaseReading.MeterReadingDateTime)
                                 {
                                     //The update has passed all checks so lets update the stored values
                                     currentDatabaseReading.MeterReadingDateTime = reading.MeterReadingDateTime;
